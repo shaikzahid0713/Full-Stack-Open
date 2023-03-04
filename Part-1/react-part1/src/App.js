@@ -1,34 +1,38 @@
 // Using Objects to Modify the same application
+// Exercise - 1.4
+// 
 
 const App = () => {
   const course = "Half Stack Application Development"
-  const part1 = {
-    name : 'Fundamentals of React',
-    exercise: 10
-  }
-  const part2 = {
-    name : 'Using props to pass data',
-    exercise: 7
-  }
-  const part3 = {
-    name : 'State of a Component',
-    exercise: 14
-  }
-  
+  const parts = [
+    {
+      name : 'Fundamentals of React',
+      exercise: 10
+    },
+    {
+      name : 'Using props to pass data',
+      exercise: 7
+    },
+    {
+      name : 'State of a Component',
+      exercise: 14
+    }
+  ]
+ 
   return (
     <div>
       <h1> {course} </h1>
       <p>
-        {part1.name} {part1.exercise}
+        {parts[0].name} {parts[0].exercise}
       </p>
       <p>
-        {part2.name} {part2.exercise}
+        {parts[1].name} {parts[1].exercise}
       </p>
       <p> 
-        {part3.name} {part3.exercise}
+        {parts[2].name} {parts[2].exercise}
       </p>
       <p>
-        Number of exercises are {part1.exercise + part2.exercise + part3.exercise}
+        Number of exercises are {parts[0].exercise + parts[1].exercise + parts[2].exercise}
       </p>
     </div>
   )
