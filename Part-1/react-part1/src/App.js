@@ -1,50 +1,35 @@
-const Header = (props) => {
-  return (
-    <h1> {props.course} </h1>
-  )
-} 
-
-const Part = (props) => {
-  return (
-    <p>
-      {props.part} {props.exercise}
-    </p>
-  )
-}
-
-const Content = (props) => {
-  return (
-    <div>
-      <Part part = {props.part1} exercise = {props.exercise1} />
-      <Part part = {props.part2} exercise = {props.exercise2} />
-      <Part part = {props.part3} exercise = {props.exercise3} />
-    </div>
-  )
-} 
-
-const Total = (props) => {
-  return (
-    <p>
-      Number of exercises are {props.exercise1 + props.exercise2 + props.exercise3}
-    </p>
-  )
-}
-
+// Using Objects to Modify the same application
 
 const App = () => {
-  const course = "Half Stack application development"
-  const part1 = "Fundamentals of React"
-  const exercise1 = 10
-  const part2 = "Using props to pass data"
-  const exercise2 = 7
-  const part3 = "State of a Component"
-  const exercise3 = 14
-
+  const course = "Half Stack Application Development"
+  const part1 = {
+    name : 'Fundamentals of React',
+    exercise: 10
+  }
+  const part2 = {
+    name : 'Using props to pass data',
+    exercise: 7
+  }
+  const part3 = {
+    name : 'State of a Component',
+    exercise: 14
+  }
+  
   return (
     <div>
-      <Header course = {course} />
-      <Content part1 = {part1} part2 = {part2} part3 = {part3} exercise1 = {exercise1} exercise2 = {exercise2} exercise3 = {exercise3} />
-      <Total exercise1 = {exercise1} exercise2 = {exercise2} exercise3 = {exercise3} />
+      <h1> {course} </h1>
+      <p>
+        {part1.name} {part1.exercise}
+      </p>
+      <p>
+        {part2.name} {part2.exercise}
+      </p>
+      <p> 
+        {part3.name} {part3.exercise}
+      </p>
+      <p>
+        Number of exercises are {part1.exercise + part2.exercise + part3.exercise}
+      </p>
     </div>
   )
 }
