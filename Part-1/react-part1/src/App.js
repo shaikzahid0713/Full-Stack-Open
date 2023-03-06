@@ -1,41 +1,37 @@
-// Using Objects to Modify the same application
-// Exercise - 1.5
+import { useState } from "react";
+
+const Display = ({counter}) => <div> {counter} </div>
+
+const Button = ({handleClick, text}) => <button onClick = {handleClick}>{text}</button> 
+
 
 
 const App = () => {
-  const course = {
-    name : "Half Stack Application Development",
-    parts : [
-      {
-        name : 'Fundamentals of React',
-        exercise: 10
-      },
-      {
-        name : 'Using props to pass data',
-        exercise: 7
-      },
-      {
-        name : 'State of a Component',
-        exercise: 14
-      }
-    ]
+
+  const [ counter, setCounter ] = useState(0)
+  console.log("Rendering with counter value...", counter);
+
+  const increaseByOne = () => {
+    console.log("Increasing value before...", counter);
+    setCounter(counter + 1) 
   }
-     
+
+  const decreaseByOne = () => {
+    console.log("Decreasing value before...", counter);
+    setCounter(counter - 1)
+  }
+  
+  const setToZero = () => {
+    console.log("Resetting to zero before....", counter);
+    setCounter(0)
+  }
+
   return (
     <div>
-      <h1> {course.name} </h1>
-      <p>
-        {course.parts[0].name} {course.parts[0].exercise}
-      </p>
-      <p>
-        {course.parts[1].name} {course.parts[1].exercise}
-      </p>
-      <p> 
-        {course.parts[2].name} {course.parts[2].exercise}
-      </p>
-      <p>
-        Number of exercises are {course.parts[0].exercise + course.parts[1].exercise + course.parts[2].exercise}
-      </p>
+      <Display counter={counter} />
+      <Button handleClick={increaseByOne} text = "Plus" />
+      <Button handleClick={setToZero} text="Zero" />
+      <Button handleClick={decreaseByOne} text="Minus" />
     </div>
   )
 }
